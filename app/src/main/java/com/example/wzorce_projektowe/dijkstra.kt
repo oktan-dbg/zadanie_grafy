@@ -6,7 +6,7 @@ data class Odleglosc(val n: Int,val c:Int)
 
 class Algorytm_dijkstra(graf:graph) : Algorithm(graf) {
 
-    override fun pathfind(s: Int, e: Int):Path? {
+    override fun pathfind(s: Int, e: Int):Droga? {
 
         // poprzedni wierzchołek
         val pooprzedni_wierzcholek = MutableList(graph.nodeCount) { -1 }
@@ -42,7 +42,7 @@ class Algorytm_dijkstra(graf:graph) : Algorithm(graf) {
             sciezka.add(i)
             i = pooprzedni_wierzcholek[i]
         }while(i != s)
-        return Path(sciezka.reversed(),odleglosc[e])
+        return Droga(sciezka.reversed(),odleglosc[e])
 
     }
 
